@@ -42,6 +42,23 @@ def test_unknown_job_and_unsafe_file_names(client, tmp_path):
     assert client.get(f"/api/jobs/{job['id']}/files/overview.png").status_code == 404
 
 
+def test_completed_job_with_no_players(tmp_path):
+    import pandas as pd
+    from api.db import Job, make_session_factory
+
+    client = TestClient(create_app(tmp_path, run_jobs=False))
+    job = client.post("/api/jobs", files={"file": ("v.mp4", _video(tmp_path / "v.mp4"))}).json()
+    out = tmp_path / "jobs" / job["id"] / "output"
+    out.mkdir()
+    cols = ["track_id", "frames", "coverage_pct", "reliability", "approx_distance_m"]
+    pd.DataFrame([], columns=cols).to_csv(out / "summary.csv", index=False)
+    with make_session_factory(tmp_path / "playervision.db")() as s:
+        s.get(Job, job["id"]).status = "completed"
+        s.commit()
+    r = client.get("/api/jobs")
+    assert r.status_code == 200 and r.json()[0]["players"] == []
+
+
 def test_health_and_metrics(client):
     assert client.get("/healthz").json() == {"status": "ok"}
     body = client.get("/metrics").text

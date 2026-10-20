@@ -59,7 +59,8 @@ def export_players(video, tracks, calib, out, merge=True, min_frames=150, min_co
         dist = float(np.hypot(*np.diff(sm, axis=0).T).sum())
         rows.append({"track_id": int(tid), "frames": len(g), "coverage_pct": round(coverage, 1),
                      "reliability": label, "approx_distance_m": round(dist, 1)})
-    pd.DataFrame(rows).to_csv(f"{out}/summary.csv", index=False)
+    cols = ["track_id", "frames", "coverage_pct", "reliability", "approx_distance_m"]
+    pd.DataFrame(rows, columns=cols).to_csv(f"{out}/summary.csv", index=False)
     if rows:
         _write_overview(video, df, [r["track_id"] for r in rows], f"{out}/overview.png")
     return rows

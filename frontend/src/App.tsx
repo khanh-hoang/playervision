@@ -48,6 +48,15 @@ function JobView({ job }: { job: Job }) {
     )
   }
 
+  if (job.players.length === 0) {
+    return (
+      <section>
+        <h2>{job.filename}</h2>
+        <p>No players were tracked long enough to make a heatmap.</p>
+      </section>
+    )
+  }
+
   const players = job.players.filter((p) => !(hideLow && p.reliability === 'low'))
   return (
     <section>
