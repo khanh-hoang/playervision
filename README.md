@@ -55,6 +55,11 @@ Tests: `pytest`
 - `api/`: FastAPI server, SQLite, one background worker
 - `frontend/`: React, TypeScript, Vite
 
+## Monitoring
+
+- `GET /healthz` checks that the server and database respond.
+- `GET /metrics` exposes Prometheus metrics: `playervision_jobs_total{status}`, `playervision_job_duration_seconds`, `playervision_jobs_queued`.
+
 ## Limitations
 
 - Fixed camera only. One calibration is used for all videos, so positions are less accurate near the image edges.
