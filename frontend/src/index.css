@@ -1,0 +1,24 @@
+:root { font-family: system-ui, sans-serif; color: #1c2330; background: #f4f6f9; }
+body { margin: 0; }
+.layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+aside { background: #fff; border-right: 1px solid #dde2ea; padding: 1rem; }
+aside h1 { font-size: 1.25rem; margin: 0 0 1rem; }
+aside ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+aside li button { width: 100%; text-align: left; padding: .5rem; border: 0; background: none; border-radius: 6px; cursor: pointer; display: flex; flex-direction: column; }
+aside li button:hover, aside li button.active { background: #e8eef8; }
+.upload { display: block; text-align: center; background: #2563eb; color: #fff; padding: .6rem; border-radius: 6px; cursor: pointer; }
+main { padding: 1.5rem; }
+.overview { max-width: 100%; border-radius: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.card { background: #fff; border: 1px solid #dde2ea; border-radius: 8px; padding: .5rem; text-align: left; cursor: pointer; }
+.card img { width: 100%; border-radius: 4px; }
+.meta { display: flex; justify-content: space-between; margin-top: .4rem; }
+.badge { font-size: .75rem; padding: .1rem .5rem; border-radius: 99px; color: #fff; }
+.badge.high { background: #16a34a; } .badge.medium { background: #d97706; } .badge.low { background: #dc2626; }
+.status { font-size: .75rem; color: #667; } .status.failed { color: #dc2626; } .status.completed { color: #16a34a; }
+.bar { background: #dde2ea; height: 10px; border-radius: 5px; overflow: hidden; max-width: 400px; }
+.bar div { background: #2563eb; height: 100%; transition: width .3s; }
+.error { color: #dc2626; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: grid; place-items: center; }
+.modal > div { background: #fff; padding: 1rem; border-radius: 8px; max-width: 90vw; }
+.modal img { max-width: 100%; max-height: 80vh; display: block; margin-bottom: .5rem; }

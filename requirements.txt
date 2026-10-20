@@ -1,0 +1,11 @@
+ultralytics
+opencv-python
+numpy
+pandas
+fastapi
+uvicorn
+sqlalchemy
+python-multipart
+prometheus-client
+pytest
+httpx

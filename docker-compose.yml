@@ -1,0 +1,11 @@
+services:
+  playervision:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - playervision-data:/data
+    restart: unless-stopped
+
+volumes:
+  playervision-data:

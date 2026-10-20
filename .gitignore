@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+data/
+samples/
+*.pt
+*.mp4
+*.log
+tracks.csv
+output/

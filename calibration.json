@@ -1,0 +1,5 @@
+{
+  "_note": "image px (x,y) matched to pitch metres (x along length 0..105, y across 0..68). Edit to refine.",
+  "image": [[945, 257], [1010, 957], [623, 465], [1300, 465]],
+  "pitch": [[52.5, 0], [52.5, 68], [43.35, 34], [61.65, 34]]
+}
